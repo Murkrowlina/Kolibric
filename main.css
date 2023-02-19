@@ -1,0 +1,43 @@
+#pick-right-ball-game {
+  display: flex;
+  flex-direction: column;
+  transition: all 0.2s;
+}
+
+#scoreboard {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+#balls-container {
+  display: flex;
+  flex-direction: column;
+}
+
+#balls-container div {
+  display: flex;
+  justify-content: center
+}
+
+.ball {
+  display: inline-block;
+  width: 10vmin;
+  height: 10vmin;
+  border-radius: 50%;
+  cursor: pointer;
+  margin: 1vmin 1.5vmin;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.ball:hover {
+  box-shadow: 0 0 0 1.2vmin white;
+  animation: kick 1s infinite cubic-bezier(0.31, 0.44, 0.44, 1.65);
+}
+
+@keyframes kick {
+  0%, 100% { top: 0; transform: scaleY(1); }
+  10% { top: 0; transform: scaleY(0.85); }
+  50% { top: -1vmin; transform: scaleY(1); }
+}
