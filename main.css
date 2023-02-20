@@ -1,3 +1,31 @@
+/* SHAKE ANIMATION */
+nav ul li button:hover i {
+  animation: Shake 1s linear infinite;
+  animation-fill-mode: forwards;
+}
+
+@keyframes Shake {
+  0% {
+      transform: rotate(10deg);
+  }
+
+  25% {
+      transform: rotate(-4deg);
+  }
+
+  50% {
+      transform: rotate(10deg);
+  }
+
+  75% {
+      transform: rotate(-4deg);
+  }
+
+  100% {
+      transform: rotate(10deg);
+  }
+}
+
 #balls-container div {
   display: flex;
   justify-content: center
@@ -25,28 +53,16 @@
   50% { top: -1vmin; transform: scaleY(1); }
 }
 
-main {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-}
-
-main p.title {
-  font-size: 1.5rem;
-}
-
-main div {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.card-container {
+#pixel-art-container {
+  --size: 4;
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: repeat(var(--size), 1fr);
+  grid-template-rows: repeat(var(--size), 1fr);
+  gap: 3;
+  padding: 3px;
 }
 
-.card-container .card {
-  margin: 2rem;
-}
+.pixel {
+  background-color: white;
+  border: 1px solid black;
+} 
