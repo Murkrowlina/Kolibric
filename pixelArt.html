@@ -18,8 +18,12 @@
         <div class="flex justify-center items-center space-x-[15px] m-[10px]" id="pixel-art-nav">
             <button class="bg-rose-600 text-xl text-white font-semibold p-[7px]" id="reset-pixels">Reset</button>
             <button class="bg-emerald-600 text-xl text-white font-semibold p-[7px]" id="new-canvas">New</button>
-            <input type="color" class="p-[5px] rounded" id="color-input">
-            <input type="number" class="w-[5rem]" id="size-input" min="4" max="100">
+            <input type="color" class="border-none rounded-full" id="color-input">
+            <label for="size">Veličina:</label> 
+            <div class="flex flex-row space-x-2 mt-2">
+                <input type="range" class="w-[10rem] h-[2rem] rounded-lg cursor-pointer accent-indigo-500" id="size-input" min="4" max="64" name="size">
+                <p id="range-number"></p>
+            </div>
         </div>
         <div class="w-[800px] h-[800px] bg-black" id="pixel-art-container">
         </div>

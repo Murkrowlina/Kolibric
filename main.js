@@ -77,6 +77,11 @@ window.addEventListener('mouseup', function(){
     input_draw = false;
 });
 
+input_size.addEventListener('mousemove', function(){
+    new_size = input_size.value;
+    document.getElementById('range-number').innerText = new_size;
+});
+
 document.getElementById('reset-pixels').addEventListener('click', function(){
     for(let i = 0; i < document.querySelectorAll('.pixel').length; i++){
         document.getElementsByClassName('pixel')[i].style.backgroundColor = 'white';
