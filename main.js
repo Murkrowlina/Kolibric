@@ -77,11 +77,6 @@ window.addEventListener('mouseup', function(){
     input_draw = false;
 });
 
-input_size.addEventListener('mousemove', function(){
-    new_size = input_size.value;
-    document.getElementById('range-number').innerText = new_size;
-});
-
 document.getElementById('reset-pixels').addEventListener('click', function(){
     for(let i = 0; i < document.querySelectorAll('.pixel').length; i++){
         document.getElementsByClassName('pixel')[i].style.backgroundColor = 'white';
@@ -91,5 +86,27 @@ document.getElementById('reset-pixels').addEventListener('click', function(){
 document.getElementById('new-canvas').addEventListener('click', function(){
     pixel_canvas.innerHTML = '';
     new_size = input_size.value;
-    createPixels(new_size);
+    if(new_size > 0 && new_size <= 64){
+        createPixels(new_size);
+    }
 })
+
+// const accessKey = 'UKhct7FDyDd6ymCMHtSsv2OLw_3YdXVdR6R7_JqqD_w';
+// const query = 'pixel for kids';
+// fetch(`https://api.unsplash.com/search/photos?query=${query}`, {
+//     headers: {
+//         Authorization: `Client-ID ${accessKey}`
+//     }
+// })
+// .then(response => response.json())
+// .then(data => {
+//     data.results.forEach(photo => {
+//         const img = document.createElement('img');
+//         img.src = photo.urls.regular;
+//         document.body.appendChild(img);
+//     });
+// })
+// .catch(error => {
+//     console.log(error);
+// });
+

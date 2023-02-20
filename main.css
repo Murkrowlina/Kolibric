@@ -30,7 +30,7 @@ nav ul li button:hover i {
   display: flex;
   justify-content: center
 }
- 
+
 .ball {
   display: inline-block;
   width: 10vmin;
@@ -63,6 +63,8 @@ nav ul li button:hover i {
 }
 
 .pixel {
+  cursor: url(images/cursor.cur), pointer;
   background-color: white;
   border: 1px solid black;
-} 
+  transition: all 0.2s;
+}
