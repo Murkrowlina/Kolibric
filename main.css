@@ -1,25 +1,8 @@
-#pick-right-ball-game {
-  display: flex;
-  flex-direction: column;
-  transition: all 0.2s;
-}
-
-#scoreboard {
-  text-align: center;
-  font-size: 2rem;
-  margin-bottom: 2rem;
-}
-
-#balls-container {
-  display: flex;
-  flex-direction: column;
-}
-
 #balls-container div {
   display: flex;
   justify-content: center
 }
-
+ 
 .ball {
   display: inline-block;
   width: 10vmin;
@@ -40,4 +23,30 @@
   0%, 100% { top: 0; transform: scaleY(1); }
   10% { top: 0; transform: scaleY(0.85); }
   50% { top: -1vmin; transform: scaleY(1); }
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+main p.title {
+  font-size: 1.5rem;
+}
+
+main div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+
+.card-container .card {
+  margin: 2rem;
 }
