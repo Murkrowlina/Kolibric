@@ -13,8 +13,8 @@
     <!-- Font awesome -->
     <script src="https://kit.fontawesome.com/3460d05c1d.js" crossorigin="anonymous"></script>
 </head>
-<body>  
-    <nav class="bg-white shadow-lg shadow-black-500/50 px-2 sm:px-4 py-2.5 dark:bg-gray-900">
+<body>
+    <nav class="bg-amber-50 shadow-lg shadow-black-500/50 px-2 sm:px-4 py-2.5 dark:bg-gray-900">
         <div class="container flex flex-wrap items-center justify-between mx-auto">
             <a href="index.html" class="flex items-center">
                 <img src="images/test.png" alt="kolibrić logo" class="h-[6rem] mr-3">
@@ -26,9 +26,9 @@
             <div class="hidden w-full md:block md:w-auto" id="navbar-default">
                 <ul class="flex flex-col p-4 mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium ">
                     <li>
-                        <a href="games.html" class="flex flex-col items-center text-emerald-500">
-                            <i class="fa-solid fa-gamepad text-3xl"></i>
-                            <span class="mt-[4px] text-[1.6rem] font-semibold">IGRE</span>
+                        <a href="arts.html" class="flex flex-col items-center text-emerald-500">
+                            <i class="fa-solid fa-palette text-3xl"></i>
+                            <span class="mt-[4px] text-[1.2rem] font-semibold">UMJETNOST</span>
                         </a> 
                     </li>
                 </ul>
@@ -36,7 +36,20 @@
         </div>
     </nav>
 
-    <main>
+    <main class="mt-[4rem] flex flex-col lg:justify-center lg:items-center">
+        <div class="border-solid border-2 border-amber-200 rounded-xl bg-amber-200 h-[600px] w-[800px]">
+            <div class="flex flex-col justify-center items-center space-x-[15px] m-[10px]">
+                <p class="text-3xl" id="color-code-text">Odaberite pravokutnik čija boja i tekst nisu isti</p>
+                <p class="mt-[1rem] text-2xl" id="color-codes-scores">Bodovi: 0</p>
+            </div>
+            <div class="flex lg:flex-row flex-col justify-center items-center h-[400px] relative" id="color-codes-container">
+            </div>
+        </div>
     </main>
+
+    <script src="main.js"></script>
+    <script>
+        loadColorCodeGame();
+    </script>
 </body>
 </html>

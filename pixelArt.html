@@ -14,19 +14,18 @@
     <script src="https://kit.fontawesome.com/3460d05c1d.js" crossorigin="anonymous"></script>
 </head>
 <body>  
-    <div class="">
-        <div class="flex lg:justify-center lg:items-center flex-col">
-            <div class="flex justify-center items-center space-x-[15px] m-[10px]" id="pixel-art-nav">
-                <button class="bg-rose-600 text-xl text-white font-semibold p-[7px]" id="reset-pixels">Reset</button>
-                <button class="bg-emerald-600 text-xl text-white font-semibold p-[7px]" id="new-canvas">New</button>
-                <input type="color" class="w-[2rem] border-none rounded-full" id="color-input">
-                <label for="size">Veličina:</label> 
-                <input type="number" placeholder="veličina" class="w-[4rem] h-[2rem] rounded-lg cursor-pointer accent-indigo-500" id="size-input" min="4" max="64" name="size">
-            </div>
-            <div class="w-[100%] h-[400px] md:h-[800px] lg:h-[800px] lg:w-[800px] bg-black" id="pixel-art-container">
-            </div>
+    <div class="flex lg:justify-center lg:items-center flex-col">
+        <div class="flex justify-center items-center space-x-[15px] m-[10px]" id="pixel-art-nav">
+            <button class="bg-rose-600 text-xl text-white font-semibold p-[7px]" id="reset-pixels">Reset</button>
+            <button class="bg-emerald-600 text-xl text-white font-semibold p-[7px]" id="new-canvas">New</button>
+            <input type="color" class="w-[2rem] border-none rounded-full" id="color-input">
+            <label for="size">Veličina:</label> 
+            <input type="number" placeholder="veličina" class="w-[4rem] h-[2rem] rounded-lg cursor-pointer accent-indigo-500" id="size-input" min="4" max="64" name="size">
+        </div>
+        <div class="w-[100%] h-[400px] md:h-[800px] lg:h-[800px] lg:w-[800px] bg-black" id="pixel-art-container">
         </div>
     </div>
+    
     <script src="main.js"></script>
 </body>
 </html>

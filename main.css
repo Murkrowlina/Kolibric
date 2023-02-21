@@ -68,3 +68,22 @@ nav ul li button:hover i {
   border: 1px solid black;
   transition: all 0.2s;
 }
+
+/* COLOR CODE */
+.color-code {
+  padding: 1rem;
+  margin: 2rem;
+  font-size: larger;
+  text-align: center;
+  border: 2px solid black;
+  border-radius: 10%;
+  cursor: pointer;
+  height: fit-content;
+  width: 150px;
+  font-weight: bold;
+}
+
+#color-codes-container img {
+  position: absolute;
+  height: 200px;
+}
