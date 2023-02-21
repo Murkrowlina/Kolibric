@@ -255,3 +255,22 @@ document.getElementById('new-canvas').addEventListener('click', function(){
 // });
 
 
+// const encodedParams = new URLSearchParams();
+// encodedParams.append("source_language", "hr");
+// encodedParams.append("target_language", "en");
+// encodedParams.append("text", "Moje ime je Nikolina");
+
+// const options = {
+//     method: 'POST',
+//     headers: {
+//         'content-type': 'application/x-www-form-urlencoded',
+//         'X-RapidAPI-Key': '5c034aba24msh260b25bd35fbbd7p1a75bejsn54b6d9190803',
+//         'X-RapidAPI-Host': 'text-translator2.p.rapidapi.com'
+//     },
+//     body: encodedParams
+// };
+
+// fetch('https://text-translator2.p.rapidapi.com/translate', options)
+//     .then(response => response.json())
+//     .then(response => console.log(response))
+//     .catch(err => console.error(err));
