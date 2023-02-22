@@ -3,6 +3,7 @@ let broj_loptica = 0;
 let loptica_score = -1;
 
 function loadBallGame(){
+    let clickSound = new clickBall('sounds/click.wav');
     document.getElementById('ball-scores').innerText = `Bodovi: ${++loptica_score}`;
     document.getElementById('balls-container').innerHTML = '';
     document.getElementById('ball-message').innerText = '';
@@ -41,6 +42,22 @@ function loadBallGame(){
     }
     document.getElementsByClassName('ball')[izabrana_loptica].style.backgroundColor = '#' + random_hex_2;
     document.getElementsByClassName('ball')[izabrana_loptica].addEventListener('click', loadBallGame);
+    mySound.play();
+}
+
+function clickBall(audio) {
+    this.sound = document.createElement("audio");
+    this.sound.src = audio;
+    this.sound.setAttribute("preload", "auto");
+    this.sound.setAttribute("controls", "none");
+    this.sound.style.display = "none";
+    document.body.appendChild(this.sound);
+    this.play = function(){
+        this.sound.play();
+    }
+    this.stop = function(){
+        this.sound.pause();
+    }    
 }
 
 // Color Codes
@@ -167,7 +184,6 @@ function createColorCodeGame(){
 function colorCodes(e){
     let target_background = e.target.style.backgroundColor;
     let target_name = e.target.getAttribute('data-color-name');
-    
     for(let i = 0; i < document.querySelectorAll('.color-code').length; i++){
         document.getElementsByClassName('color-code')[i].removeEventListener('click', colorCodes);
     } 
@@ -177,14 +193,37 @@ function colorCodes(e){
         color_codes_score++;
         e.target.style.boxShadow = '0 0 0 5px green';
         image_el.src = 'images/checkmark.png'
+        
+        let correct_sound = new wrongOrCorrect('sounds/correct.wav');
+        correct_sound.play();
         setTimeout(createColorCodeGame, 1000);
     }
     else {
         e.target.style.boxShadow = '0 0 0 5px red';
         image_el.src = 'images/wrong.png';
+        number_boxes = 2;
+        color_codes_score = 0;
+
+        let wrong_sound = new wrongOrCorrect('sounds/wrong.wav')
+        wrong_sound.play();
         setTimeout(createColorCodeGame, 1000);
     }
     document.getElementById('color-codes-container').appendChild(image_el);
+}
+
+function wrongOrCorrect(audio) {
+    this.sound = document.createElement("audio");
+    this.sound.src = audio;
+    this.sound.setAttribute("preload", "auto");
+    this.sound.setAttribute("controls", "none");
+    this.sound.style.display = "none";
+    document.body.appendChild(this.sound);
+    this.play = function(){
+        this.sound.play();
+    }
+    this.stop = function(){
+        this.sound.pause();
+    }    
 }
 
 // PIXEL ART
