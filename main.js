@@ -72,70 +72,6 @@ function clickBall(audio) {
 };
 
 // Color Codes
-let colors_array = [
-    {
-        name: 'crvena',
-        eng_name: 'red',
-        background: 'red',
-        color_text: 'white'
-    },
-    {
-        name: 'plava',
-        eng_name: 'blue',
-        background: 'blue',
-        color_text: 'white'
-    },
-    {
-        name: 'žuta',
-        eng_name: 'yellow',
-        background: 'yellow'
-    },
-    {
-        name: 'narančasta',
-        eng_name: 'orange',
-        background: 'orange'
-    },
-    {
-        name: 'zelena',
-        eng_name: 'green',
-        background: 'green',
-        color_text: 'white'
-    },
-    {
-        name: 'ljubičasta',
-        eng_name: 'purple',
-        background: '#A020F0',
-        color_text: 'white'
-    },
-    {
-        name: 'roza',
-        eng_name: 'pink',
-        background: 'pink'
-    },
-    {
-        name: 'smeđa',
-        eng_name: 'brown',
-        background: '#964B00',
-        color_text: 'white'
-    },
-    {
-        name: 'siva',
-        eng_name: 'gray',
-        background: 'gray',
-        color_text: 'white'
-    },
-    {
-        name: 'bijela',
-        eng_name: 'white',
-        background: 'white'
-    },
-    {
-        name: 'crna',
-        eng_name: 'black',
-        background: 'black',
-        color_text: 'white'
-    }
-];
 let color_codes_score = 0;
 let number_boxes = 2;
 
@@ -158,11 +94,74 @@ function createColorCodeGame(){
     }
 
     let diff_box_place = Math.floor(Math.random() * number_boxes);
-    let free_colors_array = ['red', 'blue', 'yellow', 'orange', 'green', 'purple', 'brown', 'pink','black', 'gray', 'white'];
+    let colors_array = [
+        {
+            name: 'crvena',
+            eng_name: 'red',
+            background: 'red',
+            color_text: 'white'
+        },
+        {
+            name: 'plava',
+            eng_name: 'blue',
+            background: 'blue',
+            color_text: 'white'
+        },
+        {
+            name: 'žuta',
+            eng_name: 'yellow',
+            background: 'yellow'
+        },
+        {
+            name: 'narančasta',
+            eng_name: 'orange',
+            background: 'orange'
+        },
+        {
+            name: 'zelena',
+            eng_name: 'green',
+            background: 'green',
+            color_text: 'white'
+        },
+        {
+            name: 'ljubičasta',
+            eng_name: 'purple',
+            background: '#A020F0',
+            color_text: 'white'
+        },
+        {
+            name: 'roza',
+            eng_name: 'pink',
+            background: 'pink'
+        },
+        {
+            name: 'smeđa',
+            eng_name: 'brown',
+            background: '#964B00',
+            color_text: 'white'
+        },
+        {
+            name: 'siva',
+            eng_name: 'gray',
+            background: 'gray',
+            color_text: 'white'
+        },
+        {
+            name: 'bijela',
+            eng_name: 'white',
+            background: 'white'
+        },
+        {
+            name: 'crna',
+            eng_name: 'black',
+            background: 'black',
+            color_text: 'white'
+        }
+    ];
 
     for(let i = 0; i < number_boxes; i++){
         let div_el = document.createElement('div');
-        let random_color = Math.floor(Math.random() * free_colors_array.length);
+        let random_color = Math.floor(Math.random() * colors_array.length);
 
         if(i != diff_box_place){
             div_el.innerText = colors_array[random_color].name;
@@ -178,13 +177,16 @@ function createColorCodeGame(){
             div_el.dataset.colorName = colors_array[diff_color].eng_name;
         }
 
-        free_colors_array.splice(random_color, 1);
+        console.log(colors_array)
         div_el.style.backgroundColor = colors_array[random_color].background;
         div_el.style.color = colors_array[random_color].color_text;
+        
+        colors_array.splice(random_color, 1);
         div_el.classList.add('color-code');
         div_el.addEventListener('click', colorCodes);
         document.getElementById('color-codes-container').appendChild(div_el);
     }
+    console.log("----------------------------")
 }
 
 function colorCodes(e){
