@@ -14,17 +14,17 @@
     <script src="https://kit.fontawesome.com/3460d05c1d.js" crossorigin="anonymous"></script>
 </head>
 <body class="bg-emerald-400">  
-    <nav class="bg-white shadow-lg shadow-black-500/50 px-2 sm:px-4 py-2.5 dark:bg-gray-900">
+    <nav class="bg-white shadow-lg shadow-black-500/50 px-[8px] py-[10px] sm:px-[16px]">
         <div class="container flex flex-wrap items-center justify-between mx-auto">
-            <a href="index.html" class="flex items-center">
-                <img src="images/test.png" alt="kolibrić logo" class="h-[5.5rem]">
+            <a href="index.html">
+                <img src="images/logo.png" alt="kolibrić logo" class="h-[5.5rem]">
             </a>
-            <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 ml-3 text-sm text-white md:hidden focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
-                <span class="sr-only">Open main menu</span>
-                <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
+            <button class="inline-flex items-center p-[8px] mr-[16px] text-2xl text-black md:hidden focus:outline-none focus:ring-2 focus:ring-slate-600" id="sidenav-menu" data-collapse-toggle="navbar-default" aria-controls="navbar-default" aria-expanded="false">
+                <i class="fa-solid fa-bars"></i>
             </button>
+
             <div class="hidden w-full md:block md:w-auto" id="navbar-default">
-                <ul class="flex flex-col p-4 mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium ">
+                <ul class="flex flex-col p-[16px] mt-[16px] md:flex-row md:space-x-[32px] md:mt-[0px] md:text-sm">
                     <li>
                         <a href="games.html" class="flex flex-col items-center text-emerald-500">
                             <i class="fa-solid fa-gamepad text-3xl"></i>
@@ -33,18 +33,34 @@
                     </li>
                 </ul>
             </div>
+
+            <div class="w-0 bg-white fixed top-0 right-0 z-40 w-0 h-screen" id="navbar-side">
+                <button class="m-[2rem]" >
+                    <i class="fa-solid fa-circle-xmark text-[2.6rem] text-rose-600 hover:text-red-700" id="sidenav-close"></i>
+                </button>
+                <div class="flex items-center m-[2rem]">
+                    <ul>
+                        <li>
+                            <a href="games.html" class="flex items-center justify-between p-2 text-emerald-500">
+                                <i class="fa-solid fa-gamepad text-4xl"></i>
+                                <span class="text-[1.6rem] font-semibold ml-[1rem]">IGRE</span>
+                            </a>
+                         </li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </nav>
 
     <main class="m-[3rem]">
-        <div class="grid grid-rows-3 lg:grid-cols-5 md:grid-cols-3 grid-cols-1 gap-4">
+        <div class="grid grid-rows-3 grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
             <div class="row-span-1 md:row-span-2 md:col-span-2 lg:row-span-2 lg:col-span-2 w-[100%] h-[100%]">
                 <a href="pixelArt.html">
                     <div class="flex flex-col rounded-xl shadow-lg bg-white h-[100%]">
                         <div class="h-[100%]">
                             <img src="images/pixelArt_gif.gif" alt="" class="h-[100%] w-[100%]">
                         </div>
-                        <div class="px-6 py-4">
+                        <div class="px-[24px] py-[16px]">
                             <div class="text-center text-xl">Pixel Art</div>
                         </div>
                     </div>
@@ -56,7 +72,7 @@
                         <div class="h-[100%]">
                             <img src="images/pickRightBall_gif.gif" alt="" class="h-[100%] w-[100%]">
                         </div>
-                        <div class="px-6 py-4">
+                        <div class="px-[24px] py-[16px]">
                             <div class="text-center text-lg mb-2">Treba naziv za ovu igricu</div>
                         </div>
                     </div>
@@ -64,5 +80,33 @@
             </div>
         </div>
     </main>
+
+    <footer class="bg-white p-[16px] sm:p-[24px]">
+        <div class="md:flex md:justify-between">
+            <div class="mb-[24px] md:mb-0">
+                <a href="index.html" class="flex items-center">
+                    <img src="images/logo.png" class="h-[8rem] mr-[12px]" alt="Kolibrić Logo" />
+                </a>
+            </div>
+        </div>
+        <hr class="my-[24px] border-gray-300 sm:mx-auto lg:my-[32px]" />
+        <div class="sm:flex sm:items-center sm:justify-between">
+            <span class="text-base text-gray-500 sm:text-center">© 2023 Napravile: Nikolina Vulić i Lara [napiši svoje prezime]</span>
+            </span>
+            <div class="flex mt-[16px] space-x-[24px] sm:justify-center sm:mt-0">
+                <a href="#" class="text-gray-500 hover:text-gray-900">
+                    <i class="fa-brands fa-facebook text-4xl"></i>
+                </a>
+                <a href="#" class="text-gray-500 hover:text-gray-900">
+                    <i class="fa-brands fa-instagram text-4xl"></i>
+                </a>
+                <a href="https://github.com/Murkrowlina/EDIT-Projekt" class="text-gray-500 hover:text-gray-900">
+                    <i class="fa-brands fa-github text-4xl"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
 </body>
 </html>
