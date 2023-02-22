@@ -1,7 +1,11 @@
 /* SHAKE ANIMATION */
-nav ul li button:hover i {
+nav ul li:hover i {
   animation: Shake 1s linear infinite;
   animation-fill-mode: forwards;
+}
+
+#navbar-side {
+  transition: 0.5s;
 }
 
 @keyframes Shake {

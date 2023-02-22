@@ -1,3 +1,14 @@
+// Sidenav 
+function open_closeSidenav(){
+    document.getElementById('sidenav-menu').addEventListener('click', function(){
+        document.getElementById('navbar-side').classList.toggle('w-64');
+    });
+    
+    document.getElementById('sidenav-close').addEventListener('click', function(){
+        document.getElementById('navbar-side').classList.toggle('w-64');
+    });
+}
+
 // Pick the right ball
 let broj_loptica = 0;
 let loptica_score = -1;
@@ -42,8 +53,8 @@ function loadBallGame(){
     }
     document.getElementsByClassName('ball')[izabrana_loptica].style.backgroundColor = '#' + random_hex_2;
     document.getElementsByClassName('ball')[izabrana_loptica].addEventListener('click', loadBallGame);
-    mySound.play();
-}
+    clickSound.play();
+};
 
 function clickBall(audio) {
     this.sound = document.createElement("audio");
@@ -58,7 +69,7 @@ function clickBall(audio) {
     this.stop = function(){
         this.sound.pause();
     }    
-}
+};
 
 // Color Codes
 let colors_array = [
@@ -124,7 +135,7 @@ let colors_array = [
         background: 'black',
         color_text: 'white'
     }
-]
+];
 let color_codes_score = 0;
 let number_boxes = 2;
 
@@ -133,6 +144,7 @@ function loadColorCodeGame(){
         createColorCodeGame();
     }, 1000)
 }
+
 
 function createColorCodeGame(){
     document.getElementById('color-codes-scores').innerText = `Bodovi: ${color_codes_score}`;
@@ -146,20 +158,15 @@ function createColorCodeGame(){
     }
 
     let diff_box_place = Math.floor(Math.random() * number_boxes);
-    let color_boxes_array = ['test'];
+    let free_colors_array = ['red', 'blue', 'yellow', 'orange', 'green', 'purple', 'brown', 'pink','black', 'gray', 'white'];
 
     for(let i = 0; i < number_boxes; i++){
         let div_el = document.createElement('div');
-        let random_color = Math.floor(Math.random() * colors_array.length);
+        let random_color = Math.floor(Math.random() * free_colors_array.length);
 
         if(i != diff_box_place){
-            color_boxes_array.forEach(el => {
-                while(el == colors_array[random_color].background){
-                    random_color = Math.floor(Math.random() * colors_array.length);
-                }
-                div_el.innerText = colors_array[random_color].name;
-                div_el.dataset.colorName = colors_array[random_color].eng_name;
-            })
+            div_el.innerText = colors_array[random_color].name;
+            div_el.dataset.colorName = colors_array[random_color].eng_name;
         }
         else {
             let diff_color = Math.floor(Math.random() * colors_array.length);
@@ -171,8 +178,7 @@ function createColorCodeGame(){
             div_el.dataset.colorName = colors_array[diff_color].eng_name;
         }
 
-        color_boxes_array.push(colors_array[random_color].background);
-
+        free_colors_array.splice(random_color, 1);
         div_el.style.backgroundColor = colors_array[random_color].background;
         div_el.style.color = colors_array[random_color].color_text;
         div_el.classList.add('color-code');
@@ -227,16 +233,22 @@ function wrongOrCorrect(audio) {
 }
 
 // PIXEL ART
-let pixel_canvas = document.getElementById('pixel-art-container');
-let input_size = document.getElementById('size-input');
-let new_size = input_size.value;
-let input_color = document.getElementById('color-input');
+let pixel_canvas;
+let input_size;
+let input_color;
 let input_draw = false;
 
-function createPixels(size){
-    pixel_canvas.style.setProperty('--size', size)
+function loadPixelArt(size){
+    pixel_canvas = document.getElementById('pixel-art-container');
+    input_size = document.getElementById('size-input');
+    input_color = document.getElementById('color-input');
+    createPixels(input_size.value);
+}
 
-    for(let i = 0; i < size * size; i++){
+function createPixels(pixels){
+    pixel_canvas.style.setProperty('--size', pixels)
+
+    for(let i = 0; i < pixels * pixels; i++){
         let div_el = document.createElement('div');
         div_el.classList.add('pixel');
         
@@ -250,6 +262,7 @@ function createPixels(size){
 
         pixel_canvas.appendChild(div_el);
     }
+    
 }
 
 window.addEventListener('mousedown', function(){
@@ -268,11 +281,12 @@ document.getElementById('reset-pixels').addEventListener('click', function(){
 
 document.getElementById('new-canvas').addEventListener('click', function(){
     pixel_canvas.innerHTML = '';
-    new_size = input_size.value;
-    if(new_size > 0 && new_size <= 64){
-        createPixels(new_size);
+    if(input_size.value > 0 && input_size.value <= 64){
+        loadPixelArt(input_size.value);
     }
 })
+
+
 
 // const accessKey = 'UKhct7FDyDd6ymCMHtSsv2OLw_3YdXVdR6R7_JqqD_w';
 // const query = 'pixel for kids';
