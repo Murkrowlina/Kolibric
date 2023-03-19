@@ -9,12 +9,29 @@ function open_closeSidenav(){
     });
 }
 
+function soundEffect(audio) {
+    this.sound = document.createElement('audio');
+    this.sound.src = audio;
+    this.sound.setAttribute('preload', 'auto');
+    this.sound.setAttribute('controls', 'none');
+    this.sound.style.display = 'none';
+
+    document.body.appendChild(this.sound);
+    this.play = function(){
+        this.sound.play();
+    }
+    this.stop = function(){
+        this.sound.pause();
+    }    
+};
+
 // Pick the right ball
 let broj_loptica = 0;
 let loptica_score = -1;
 
 function loadBallGame(){
-    let clickSound = new clickBall('sounds/click.wav');
+    let clickSound = new soundEffect('sounds/click.wav');
+
     document.getElementById('ball-scores').innerText = `Bodovi: ${++loptica_score}`;
     document.getElementById('balls-container').innerHTML = '';
     document.getElementById('ball-message').innerText = '';
@@ -46,29 +63,14 @@ function loadBallGame(){
                 });
             }
 
-            console.log(izabrana_loptica)
             div_el.appendChild(loptica_el);
         }
         document.getElementById('balls-container').appendChild(div_el);
     }
+    
     document.getElementsByClassName('ball')[izabrana_loptica].style.backgroundColor = '#' + random_hex_2;
     document.getElementsByClassName('ball')[izabrana_loptica].addEventListener('click', loadBallGame);
     clickSound.play();
-};
-
-function clickBall(audio) {
-    this.sound = document.createElement("audio");
-    this.sound.src = audio;
-    this.sound.setAttribute("preload", "auto");
-    this.sound.setAttribute("controls", "none");
-    this.sound.style.display = "none";
-    document.body.appendChild(this.sound);
-    this.play = function(){
-        this.sound.play();
-    }
-    this.stop = function(){
-        this.sound.pause();
-    }    
 };
 
 // Color Codes
@@ -80,7 +82,6 @@ function loadColorCodeGame(){
         createColorCodeGame();
     }, 1000)
 }
-
 
 function createColorCodeGame(){
     document.getElementById('color-codes-scores').innerText = `Bodovi: ${color_codes_score}`;
@@ -177,7 +178,6 @@ function createColorCodeGame(){
             div_el.dataset.colorName = colors_array[diff_color].eng_name;
         }
 
-        console.log(colors_array)
         div_el.style.backgroundColor = colors_array[random_color].background;
         div_el.style.color = colors_array[random_color].color_text;
         
@@ -186,7 +186,6 @@ function createColorCodeGame(){
         div_el.addEventListener('click', colorCodes);
         document.getElementById('color-codes-container').appendChild(div_el);
     }
-    console.log("----------------------------")
 }
 
 function colorCodes(e){
@@ -202,7 +201,7 @@ function colorCodes(e){
         e.target.style.boxShadow = '0 0 0 5px green';
         image_el.src = 'images/checkmark.png'
         
-        let correct_sound = new wrongOrCorrect('sounds/correct.wav');
+        let correct_sound = new soundEffect('sounds/correct.wav');
         correct_sound.play();
         setTimeout(createColorCodeGame, 1000);
     }
@@ -212,26 +211,11 @@ function colorCodes(e){
         number_boxes = 2;
         color_codes_score = 0;
 
-        let wrong_sound = new wrongOrCorrect('sounds/wrong.wav')
+        let wrong_sound = new soundEffect('sounds/wrong.wav');
         wrong_sound.play();
         setTimeout(createColorCodeGame, 1000);
     }
     document.getElementById('color-codes-container').appendChild(image_el);
-}
-
-function wrongOrCorrect(audio) {
-    this.sound = document.createElement("audio");
-    this.sound.src = audio;
-    this.sound.setAttribute("preload", "auto");
-    this.sound.setAttribute("controls", "none");
-    this.sound.style.display = "none";
-    document.body.appendChild(this.sound);
-    this.play = function(){
-        this.sound.play();
-    }
-    this.stop = function(){
-        this.sound.pause();
-    }    
 }
 
 // PIXEL ART
@@ -245,11 +229,14 @@ function loadPixelArt(size){
     input_size = document.getElementById('size-input');
     input_color = document.getElementById('color-input');
     createPixels(input_size.value);
+
+    document.getElementById('reset-pixels').addEventListener('click', resetPixelArt);
+    document.getElementById('new-canvas').addEventListener('click', createNewPixelArt);
 }
 
 function createPixels(pixels){
     pixel_canvas.style.setProperty('--size', pixels)
-
+    
     for(let i = 0; i < pixels * pixels; i++){
         let div_el = document.createElement('div');
         div_el.classList.add('pixel');
@@ -261,11 +248,23 @@ function createPixels(pixels){
         div_el.addEventListener('mousedown', function(){
             div_el.style.backgroundColor = input_color.value;
         });
-
+        
         pixel_canvas.appendChild(div_el);
     }
-    
 }
+
+function resetPixelArt(){
+    for(let i = 0; i < document.querySelectorAll('.pixel').length; i++){
+        document.getElementsByClassName('pixel')[i].style.backgroundColor = 'white';
+    }
+};
+
+function createNewPixelArt(){
+    pixel_canvas.innerHTML = '';
+    if(input_size.value > 0 && input_size.value <= 64){
+        loadPixelArt(input_size.value);
+    }
+};
 
 window.addEventListener('mousedown', function(){
     input_draw = true;
@@ -274,24 +273,213 @@ window.addEventListener('mousedown', function(){
 window.addEventListener('mouseup', function(){
     input_draw = false;
 });
+  
+function voiceWord(word){
+    fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`)
+    .then(res => res.json())
+    .then(data => {
+        let sound;
+        if(data[0].phonetics[0].audio != ""){
+            sound = new soundEffect(data[0].phonetics[0].audio);
+        }
+        else{
+            sound = new soundEffect(data[0].phonetics[1].audio);
+        }
+        sound.play();
+    })
+    .catch(err => console.log(err))
+}
 
-document.getElementById('reset-pixels').addEventListener('click', function(){
-    for(let i = 0; i < document.querySelectorAll('.pixel').length; i++){
-        document.getElementsByClassName('pixel')[i].style.backgroundColor = 'white';
+function sendAudio(getAudio){
+    let sound = new soundEffect(getAudio);
+    sound.play();
+}
+
+// ANIMALS.HTML 
+let animals = {
+    ocean: [
+        {
+            name: 'fish',
+            height_style: 'h-[10rem] md:h-[13rem] lg:h-[13rem]'
+        },
+        {
+            name: 'whale',
+            height_style: 'h-[12rem] md:h-[20rem] lg:h-[20rem]'
+        },
+        {
+            name: 'shark',
+            height_style: 'h-[12rem] md:h-[20rem] lg:h-[20rem]'
+        },
+        {
+            name: 'dolphin',
+            height_style: 'h-[20rem] md:h-[30rem] lg:h-[30rem]'
+        },
+        {
+            name: 'starfish',
+            height_style: 'h-[12rem] md:h-[17rem] lg:h-[17rem]'
+        },
+        {
+            name: 'octopus',
+            height_style: 'h-[12rem] md:h-[17rem] lg:h-[17rem]'
+        },
+        {
+            name: 'crab',
+            height_style: 'h-[10rem] md:h-[10rem] lg:h-[10rem]'
+        }
+    ],
+    jungle: [
+        {
+            name: 'lion',
+            height_style: 'h-[18rem] md:h-[20rem] lg:h-[20rem]'
+        },
+        {
+            name: 'tiger',
+            height_style: 'h-[18rem] md:h-[20rem] lg:h-[20rem]'
+        },
+        {
+            name: 'elephant',
+            height_style: 'h-[18rem] md:h-[20rem] lg:h-[20rem]'
+        },
+        {
+            name: 'crocodile',
+            height_style: 'h-[18rem] md:h-[16rem] lg:h-[16rem]'
+        },
+        {
+            name: 'hippopotamus',
+            height_style: 'h-[18rem] md:h-[20rem] lg:h-[22rem]'
+        },
+        {
+            name: 'rhinoceros',
+            height_style: 'h-[18rem] md:h-[20rem] lg:h-[20rem]'
+        },
+        {
+            name: 'chameleon',
+            height_style: 'h-[18rem] md:h-[20rem] lg:h-[20rem]'
+        }
+    ],
+    farm: [
+        {
+            name: 'horse',
+            height_style: 'h-[18rem] md:h-[20rem] lg:h-[20rem]'
+        },
+        {
+            name: 'cow',
+            height_style: 'h-[18rem] md:h-[20rem] lg:h-[20rem]'
+        },
+        {
+            name: 'rooster',
+            height_style: 'h-[14rem] md:h-[17rem] lg:h-[17rem]'
+        },
+        {
+            name: 'hen',
+            height_style: 'h-[14rem] md:h-[16rem] lg:h-[16rem]'
+        },
+        {
+            name: 'duck',
+            height_style: 'h-[16rem] md:h-[20rem] lg:h-[20rem]'
+        },
+        {
+            name: 'goose',
+            height_style: 'h-[16rem] md:h-[20rem] lg:h-[20rem]'
+        },
+        {
+            name: 'pig',
+            height_style: 'h-[15rem] md:h-[17rem] lg:h-[17rem]'
+
+        },
+        {
+            name: 'sheep',
+            height_style: 'h-[16rem] md:h-[20rem] lg:h-[20rem]'
+        },
+        {
+            name: 'dog',
+            height_style: 'h-[15rem] md:h-[17rem] lg:h-[17rem]'
+        },
+        {
+            name: 'cat',
+            height_style: 'h-[12rem] md:h-[17rem] lg:h-[17rem]'
+        }
+    ]
+}
+
+let animal_div = document.getElementById('animalContainer');
+let current_animal = 0;
+
+function loadAnimal(animals_type){
+    animal_div.innerHTML = 
+    `
+        <div class="flex items-center justify-center">
+            <img src="animals/${animals_type}/${animals[animals_type][current_animal].name}.png" alt="${animals[animals_type][current_animal].name}" class="${animals[animals_type][current_animal].height_style} cursor-pointer" onclick="voiceWord('${animals[animals_type][current_animal].name}')">
+        </div>
+        <div class="flex flex-row justify-evenly items-center">
+            <span class="text-[2rem] md:text-[2.6rem] lg:text-[2.6rem] text-white uppercase" onclick="voiceWord('${animals[animals_type][current_animal].name}')">${animals[animals_type][current_animal].name}</span>
+            <i class="fa-solid fa-right-long text-[5rem] md:text-[7rem] lg:text-[7rem] text-amber-200 cursor-pointer" onclick="nextAnimal('${animals_type}')"></i>
+        </div>
+    `;
+}
+
+function prevAnimal(animals_type){
+    current_animal--;
+    if(current_animal != 0){
+        animal_div.innerHTML = 
+        `
+            <div class="flex items-center justify-center">
+                <img src="animals/${animals_type}/${animals[animals_type][current_animal].name}.png" alt="${animals[animals_type][current_animal].name}" class="${animals[animals_type][current_animal].height_style} cursor-pointer" onclick="voiceWord('${animals[animals_type][current_animal].name}')">
+            </div>            
+            <div class="flex flex-row justify-evenly items-center">
+                <i class="fa-solid fa-left-long text-[5rem] md:text-[7rem] lg:text-[7rem] text-amber-200 cursor-pointer" onclick="prevAnimal('${animals_type}')"></i>
+                <span class="text-[2rem] md:text-[2.6rem] lg:text-[2.6rem] text-white uppercase" onclick="voiceWord('${animals[animals_type][current_animal].name}')">${animals[animals_type][current_animal].name}</span>
+                <i class="fa-solid fa-right-long text-[5rem] md:text-[7rem] lg:text-[7rem] text-amber-200 cursor-pointer" onclick="nextAnimal('${animals_type}')"></i>
+            </div>
+        `;
     }
-});
-
-document.getElementById('new-canvas').addEventListener('click', function(){
-    pixel_canvas.innerHTML = '';
-    if(input_size.value > 0 && input_size.value <= 64){
-        loadPixelArt(input_size.value);
+    else {
+        animal_div.innerHTML = 
+        `
+        <div class="flex items-center justify-center">
+            <img src="animals/${animals_type}/${animals[animals_type][current_animal].name}.png" alt="${animals[animals_type][current_animal].name}" class="${animals[animals_type][current_animal].height_style} cursor-pointer" onclick="voiceWord('${animals[animals_type][current_animal].name}')">
+        </div>        
+        <div class="flex flex-row justify-evenly items-center">
+            <p class="text-[2rem] md:text-[2.6rem] lg:text-[2.6rem] text-white uppercase" onclick="voiceWord('${animals[animals_type][current_animal].name}')">${animals[animals_type][current_animal].name}</p>
+            <i class="fa-solid fa-right-long text-[5rem] md:text-[7rem] lg:text-[7rem] text-amber-200 cursor-pointer" onclick="nextAnimal('${animals_type}')"></i>
+        </div>
+        `;
     }
-})
+    voiceWord(animals[animals_type][current_animal].name);
+}
 
-
+function nextAnimal(animals_type){
+    current_animal++;
+    if(current_animal < animals[animals_type].length - 1){
+        animal_div.innerHTML = 
+        `
+            <div class="flex items-center justify-center">
+                <img src="animals/${animals_type}/${animals[animals_type][current_animal].name}.png" alt="${animals[animals_type][current_animal].name}" class="${animals[animals_type][current_animal].height_style} cursor-pointer" onclick="voiceWord('${animals[animals_type][current_animal].name}')">
+            </div>
+            <div class="flex flex-row justify-evenly items-center">
+                <i class="fa-solid fa-left-long text-[5rem] md:text-[7rem] lg:text-[7rem] text-amber-200 cursor-pointer" onclick="prevAnimal('${animals_type}')"></i>
+                <p class="text-[2rem] md:text-[2.6rem] lg:text-[2.6rem] text-white uppercase" onclick="voiceWord('${animals[animals_type][current_animal].name}')">${animals[animals_type][current_animal].name}</p>
+                <i class="fa-solid fa-right-long text-[5rem] md:text-[7rem] lg:text-[7rem] text-amber-200 cursor-pointer" onclick="nextAnimal('${animals_type}')"></i>
+            </div>
+        `;
+    }
+    else {
+        animal_div.innerHTML = 
+        `
+            <div class="flex items-center justify-center">
+                <img src="animals/${animals_type}/${animals[animals_type][current_animal].name}.png" alt="${animals[animals_type][current_animal].name}" class="${animals[animals_type][current_animal].height_style} cursor-pointer" onclick="voiceWord('${animals[animals_type][current_animal].name}')">
+            </div>
+            <div class="flex flex-row justify-evenly items-center">
+                <i class="fa-solid fa-left-long text-[5rem] md:text-[7rem] lg:text-[7rem] text-amber-200 cursor-pointer" onclick="prevAnimal('${animals_type}')"></i>
+                <p class="text-[2rem] md:text-[2.6rem] lg:text-[2.6rem] text-white uppercase" onclick="voiceWord('${animals[animals_type][current_animal].name}')">${animals[animals_type][current_animal].name}</p>
+            </div>
+        `;
+    }
+    voiceWord(animals[animals_type][current_animal].name);
+}
 
 // const accessKey = 'UKhct7FDyDd6ymCMHtSsv2OLw_3YdXVdR6R7_JqqD_w';
-// const query = 'pixel for kids';
+// const query = 'dolphin';
 // fetch(`https://api.unsplash.com/search/photos?query=${query}`, {
 //     headers: {
 //         Authorization: `Client-ID ${accessKey}`

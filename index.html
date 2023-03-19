@@ -14,27 +14,28 @@
     <script src="https://kit.fontawesome.com/3460d05c1d.js" crossorigin="anonymous"></script>
 </head>
 <body onload="open_closeSidenav()">  
-    <nav class="bg-white shadow-lg shadow-black-500/50 px-[8px] py-[10px] sm:px-[16px]">
+    <nav class="bg-green-500 shadow-lg shadow-black-500/50 px-[8px] py-[10px] sm:px-[16px]">
         <div class="container flex flex-wrap items-center justify-between mx-auto">
             <a href="index.html">
                 <img src="images/logo.png" alt="kolibrić logo" class="h-[5.5rem]">
             </a>
             <button class="inline-flex items-center p-[8px] mr-[16px] text-2xl text-black md:hidden focus:outline-none focus:ring-2 focus:ring-slate-600" id="sidenav-menu" data-collapse-toggle="navbar-default" aria-controls="navbar-default" aria-expanded="false">
-                <i class="fa-solid fa-bars"></i>
+                <i class="fa-solid fa-bars text-white"></i>
             </button>
 
+            <!-- p-[16px] mt-[16px] -->
             <div class="hidden w-full md:block md:w-auto" id="navbar-default">
-                <ul class="flex flex-col p-[16px] mt-[16px] md:flex-row md:space-x-[32px] md:mt-[0px] md:text-sm">
-                    <li>
-                        <a href="games.html" class="flex flex-col items-center text-emerald-500">
+                <ul class="flex flex-col md:flex-row md:space-x-[32px] md:mt-[0px] md:text-sm">
+                    <li class="bg-white p-[1rem] rounded-[4rem]">
+                        <a href="igre_stranice/games.html" class="flex flex-row items-center text-emerald-500">
                             <i class="fa-solid fa-gamepad text-3xl"></i>
-                            <span class="mt-[4px] text-[1.2rem] font-semibold">IGRE</span>
+                            <span class="text-[1.2rem] font-semibold ml-[1rem]">IGRE</span>
                         </a> 
                     </li>
-                    <li>
-                        <a href="engleski.html" class="flex flex-col items-center text-rose-500">
+                    <li class="bg-white p-[1rem] rounded-[4rem]">
+                        <a href="engleski_stranice/engleski.html" class="flex flex-row items-center text-rose-500">
                             <i class="fa-solid fa-book text-3xl"></i>
-                            <span class="mt-[4px] text-[1.2rem] font-semibold">ENGLESKI</span>
+                            <span class="text-[1.2rem] font-semibold ml-[1rem]">ENGLESKI</span>
                         </a> 
                     </li>
                 </ul>
@@ -47,13 +48,13 @@
                 <div class="flex items-center m-[2rem]">
                     <ul>
                         <li>
-                            <a href="games.html" class="flex items-center p-[8px] text-emerald-500">
+                            <a href="igre_stranice/games.html" class="flex items-center p-[8px] text-emerald-500">
                                 <i class="fa-solid fa-gamepad text-4xl"></i>
                                 <span class="text-[1.6rem] font-semibold ml-[1rem]">IGRE</span>
                             </a>
                          </li>
                          <li>
-                            <a href="engleski.html" class="flex items-center p-[8px] text-rose-500">
+                            <a href="engleski_stranice/engleski.html" class="flex items-center p-[8px] text-rose-500">
                                 <i class="fa-solid fa-book text-4xl"></i>
                                 <span class="text-[1.6rem] font-semibold ml-[1rem]">ENGLESKI</span>
                             </a> 
@@ -66,13 +67,16 @@
 
     <main>
         <div class="relative overflow-hidden h-[800px]">
+            <div class="absolute top-[40%] left-[50%] -translate-x-1/2 -translate-y-1/2">
+                <img src="images/logo2.png" alt="kolibrić logo" class="h-[15rem]">
+            </div>
             <div class="z-[-1] top-[0px] bottom-[0px] left-[0px] right-[0px] relative" id="image-intro">
                 <img class="absolute left-[50%] bottom-10px h-[800px] min-h-full min-w-full translate-x-[-50%]" src="images/parallax2.jpg" alt="parallax">
             </div>
         </div>
     </main>
 
-    <footer class="bg-white p-[16px] sm:p-[24px]">
+    <footer class="bg-green-500 p-[16px] sm:p-[24px]">
         <div class="md:flex md:justify-between">
             <div class="mb-[24px] md:mb-0">
                 <a href="index.html" class="flex items-center">
@@ -80,18 +84,18 @@
                 </a>
             </div>
         </div>
-        <hr class="my-[24px] border-gray-300 sm:mx-auto lg:my-[32px]" />
+        <hr class="my-[24px] border-white sm:mx-auto lg:my-[32px]" />
         <div class="sm:flex sm:items-center sm:justify-between">
-            <span class="text-base text-gray-500 sm:text-center">© 2023 Napravile: Nikolina Vulić i Lara [napiši svoje prezime]</span>
+            <span class="text-base text-white sm:text-center">© 2023 Napravile: Nikolina Vulić i Lara Berket</span>
             </span>
             <div class="flex mt-[16px] space-x-[24px] sm:justify-center sm:mt-0">
-                <a href="#" class="text-gray-500 hover:text-gray-900">
+                <a href="#" class="text-white hover:text-green-300">
                     <i class="fa-brands fa-facebook text-4xl"></i>
                 </a>
-                <a href="#" class="text-gray-500 hover:text-gray-900">
+                <a href="#" class="text-white hover:text-green-300">
                     <i class="fa-brands fa-instagram text-4xl"></i>
                 </a>
-                <a href="https://github.com/Murkrowlina/EDIT-Projekt" class="text-gray-500 hover:text-gray-900">
+                <a href="https://github.com/Murkrowlina/EDIT-Projekt" class="text-white hover:text-green-300">
                     <i class="fa-brands fa-github text-4xl"></i>
                 </a>
             </div>

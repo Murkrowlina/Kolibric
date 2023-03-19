@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../main.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font awesome -->
+    <script src="https://kit.fontawesome.com/3460d05c1d.js" crossorigin="anonymous"></script>
+
+    <style>
+        div {
+            color: #ff7d2793;
+        }
+    </style>
+</head>
+<body>
+    <nav class="fixed p-[2rem] top-[0px] left-[0px] h-fit w-fit border-2 border-transparent rounded-br-[8rem] bg-amber-400">
+        <div>
+            <a href="engleski.html"><i class="fa-solid fa-arrow-left text-[5rem] text-rose-600"></i></a>
+        </div>
+    </nav>
+
+    <main class="mt-[5rem]">
+        <div class="grid grid-rows-12 grid-cols-1 md:grid-rows-6 lg:grid-rows-4 md:grid-cols-2 lg:grid-cols-3 gap-[4rem] px-[1rem] md:px-[4rem] lg:px-[6rem]">
+            <div class="text-center flex justify-center items-center">
+                <p class="text-[5rem] tracking-wider" id="multicolored-title">Click Colors!</p>
+            </div>
+            <div class="row-span-1 col-span-1 w-[100%] h-[100%] flex justify-center items-center">
+                <img src="crayons/red_crayon.png" alt="red crayon" onclick="voiceWord('red')" class="cursor-pointer hover:drop-shadow-[5px_5px_5px_#e2212190]">
+            </div>
+            <div class="row-span-1 col-span-1 w-[100%] h-[100%] flex justify-center items-center">
+                <img src="crayons/blue_crayon.png" alt="blue crayon" onclick="voiceWord('blue')" class="cursor-pointer hover:drop-shadow-[5px_5px_5px_#43b1e8]">
+            </div>
+            <div class="row-span-1 col-span-1 w-[100%] h-[100%] flex justify-center items-center">
+                <img src="crayons/yellow_crayon.png" alt="yellow crayon" onclick="voiceWord('yellow')" class="cursor-pointer hover:drop-shadow-[5px_5px_5px_#ffe41a81]">
+            </div>
+            <div class="row-span-1 col-span-1 w-[100%] h-[100%] flex justify-center items-center">
+                <img src="crayons/purple_crayon.png" alt="purple crayon" onclick="voiceWord('purple')" class="cursor-pointer hover:drop-shadow-[5px_5px_5px_#b83dba]">
+            </div>
+            <div class="row-span-1 col-span-1 w-[100%] h-[100%] flex justify-center items-center">
+                <img src="crayons/green_crayon.png" alt="green crayon" onclick="voiceWord('green')" class="cursor-pointer hover:drop-shadow-[5px_5px_5px_#81c144]">
+            </div>
+            <div class="row-span-1 col-span-1 w-[100%] h-[100%] flex justify-center items-center">
+                <img src="crayons/orange_crayon.png" alt="orange crayon" onclick="sendAudio('crayons/orange.ogg')" class="cursor-pointer hover:drop-shadow-[5px_5px_5px_#ff7d2793]">
+            </div>
+            <div class="row-span-1 col-span-1 w-[100%] h-[100%] flex justify-center items-center">
+                <img src="crayons/brown_crayon.png" alt="brown crayon" onclick="voiceWord('brown')" class="cursor-pointer hover:drop-shadow-[5px_5px_5px_#9e623f]">
+            </div>
+            <div class="row-span-1 col-span-1 w-[100%] h-[100%] flex justify-center items-center">
+                <img src="crayons/pink_crayon.png" alt="pink crayon" onclick="voiceWord('pink')" class="cursor-pointer hover:drop-shadow-[5px_5px_5px_#ffaec88d]">
+            </div>
+            <div class="row-span-1 col-span-1 w-[100%] h-[100%] flex justify-center items-center">
+                <img src="crayons/gray_crayon.png" alt="gray crayon" onclick="voiceWord('gray')" class="cursor-pointer hover:drop-shadow-[5px_5px_5px_#c3c3c3]">
+            </div>
+            <div class="row-span-1 col-span-1 w-[100%] h-[100%] flex justify-center items-center">
+                <img src="crayons/white_crayon.png" alt="white crayon" onclick="voiceWord('white')" class="cursor-pointer hover:drop-shadow-[5px_5px_5px_white]">
+            </div>
+            <div class="row-span-1 col-span-1 w-[100%] h-[100%] flex justify-center items-center">
+                <img src="crayons/black_crayon.png" alt="black crayon" onclick="voiceWord('black')" class="cursor-pointer hover:drop-shadow-[5px_5px_5px_black]">
+            </div>
+        </div>
+    </main>
+
+    <script src="../main.js"></script>
+</body>
+</html>
