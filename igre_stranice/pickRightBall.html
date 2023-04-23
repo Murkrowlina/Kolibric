@@ -13,15 +13,15 @@
     <!-- Font awesome -->
     <script src="https://kit.fontawesome.com/3460d05c1d.js" crossorigin="anonymous"></script>
 </head>
-<body class="bg-slate-700" onload="loadBallGame()">  
-    <div id="pick-right-ball-game" class="flex flex-col mt-[2rem]">
-        <div id="scoreboard" class="text-center text-white text-4xl mb-[3rem]">
-            <p id="ball-scores">Bodovi:</p>
-            <p id="ball-message"></p>
+<body class="bg-slate-700 flex justify-center" onload="loadBallGame()">  
+    <main class="mt-[10px] px-[4rem] pb-[4rem] rounded-2xl" id="pick-right-ball-bg">
+        <div id="pick-right-ball-game" class="flex flex-col mt-[2rem]">
+            <div id="scoreboard" class="text-center text-4xl mb-[3rem]">
+                <p id="ball-scores">Bodovi:</p>
+            </div>
+            <div id="balls-container" class="flex flex-col"></div>
         </div>
-        <div id="balls-container" class="flex flex-col"></div>
-    </div>
-
+    </main>
     <script src="../main.js"></script>
 </body>
 </html>

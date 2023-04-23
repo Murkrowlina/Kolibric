@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kolibrić</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../main.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font awesome -->
+    <script src="https://kit.fontawesome.com/3460d05c1d.js" crossorigin="anonymous"></script>
+</head>
+<body class="flex justify-center bg-teal-950">  
+    <nav class="fixed p-[1rem] top-[0px] left-[0px] h-fit w-fit border-2 border-transparent rounded-br-[8rem] bg-teal-900">
+        <div>
+            <a href="educations.html"><i class="fa-solid fa-arrow-left text-[4rem] text-lime-600"></i></a>
+        </div>
+    </nav>
+
+    <main id="geography-container" class="text-center m-[1rem] mt-[4rem] pt-[0.5rem] pb-[2rem] px-[1rem] lg:px-[4rem] bg-white">
+        <div id="timer" class="hidden float-right overflow-hidden text-end text-[2rem] p-[10px] text-rose-500 bg-black">2:00</div>
+        <div id="geography-game" class="flex flex-col flex-wrap justify-center items-center gap-[30px]">
+            <p class="text-5xl">KOJI BI KVIZ ZAIGRALI?</p>
+            <button onClick="startGeographyGame('flags')" class="bg-zinc-300 rounded-md p-[20px] text-3xl font-extrabold">ZASTAVE</button>
+            <button onClick="startGeographyGame('capital')" class="bg-zinc-300 rounded-md p-[20px] text-3xl font-extrabold">GLAVNI GRADOVI</button>
+            <p class="text-4xl">POSTAVKE IGRE:</p>
+            <div class="flex flex-wrap flex-col justify-center items-center gap-[10px] text-xl">
+                <p><input type="radio" name="postavke" value="normal" class="scale-[1.2] accent-green-600" checked> Normalno - igraj koliko želiš</p>
+                <p><input type="radio" name="postavke" value="strict" class="scale-[1.2] accent-green-600"> Strict - igraj sve dok ne pogriješiš</p>
+                <p><input type="radio" name="postavke" value="timer" class="scale-[1.2] accent-green-600"> Timer - igraj sve dok ne istekne vrijeme</p>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-auth-compat.js"></script>
+    <script src="../main.js"></script>
+</body>
+</html>

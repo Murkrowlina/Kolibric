@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../main.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font awesome -->
+    <script src="https://kit.fontawesome.com/3460d05c1d.js" crossorigin="anonymous"></script>
+
+    <style>
+
+    </style>
+</head>
+<body class="bg-slate-700 flex justify-center items-center">
+    <main id="simon-says" class="mt-[20px] h-[500px] w-[500px] border-[8px] border-black rounded-[50%] bg-black overflow-hidden relative">
+        <div id="simon-buttons">
+            <button id="simon-button" data-simon="0" class="h-[55%] w-[55%] z-[2] absolute top-[-10%] left-[-6%] bg-green-500 rounded-tl-[100%] opacity-[0.4]"></button>
+            <button id="simon-button" data-simon="1" class="h-[55%] w-[55%] absolute top-[-10%] right-[-6%] bg-rose-500 rounded-tr-[100%] opacity-[0.4]"></button>
+            <button id="simon-button" data-simon="2" class="h-[55%] w-[55%] bottom-[-2%] left-[-6%] absolute bg-yellow-500 rounded-bl-[100%] opacity-[0.4]"></button>
+            <button id="simon-button" data-simon="3" class="h-[55%] w-[55%] bottom-[-2%] right-[-6%] absolute bg-blue-500 rounded-br-[100%] opacity-[0.4]"></button>
+        </div>
+        <div id="simon-controls" class="flex flex-col justify-center items-center absolute z-10 top-[30%] left-0 right-0 my-0 mx-auto bg-gray-950 rounded-[100%] text-white w-[200px] h-[200px] overflow-hidden text-center">
+            <span id="simon-score" class="bg-slate-900 text-red-500 p-[5px] w-[70px] text-lg rounded-[5px] inline-block">---</span>
+            <div id="simon-settings" class="flex flex-row justify-evenly gap-[1rem] text-base">
+                <div>
+                    <p>Start</p>
+                    <span id="simon-start" class="rounded-[50%] cursor-pointer inline-block bg-green-500 w-[25px] h-[25px]"></span>
+                </div>
+                <div>
+                    <p>Reset</p>
+                    <span id="simon-reset" class="rounded-[50%] cursor-pointer inline-block bg-red-500 w-[25px] h-[25px]"></span>
+                </div>
+                <div>
+                    <p>Strict</p>
+                    <span id="simon-strict" class="rounded-[50%] cursor-pointer inline-block bg-orange-500 w-[25px] h-[25px]"></span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-auth-compat.js"></script>
+   <script src="../main.js"></script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memorij</title>
+
+     <!-- CSS -->
+    <link rel="stylesheet" href="../main.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font awesome -->
+    <script src="https://kit.fontawesome.com/3460d05c1d.js" crossorigin="anonymous"></script>
+</head>
+<body class="bg-slate-700 flex justify-center" onload="loadMemoryCard()">
+    <main class="bg-[#FFFFF0] mt-[10px] p-[1rem] rounded-2xl">
+        <div id="memory-container">
+            <p class="text-[2.2rem] text-center">Pronađi parove</p>
+            <div id="memory-game"></div>
+        </div>
+        <div id="congratulations" class="text-center p-[3rem]">
+            <i class="fa-solid fa-trophy fa-10x text-yellow-500"></i>
+            <p class="text-[5rem]">Bravo!</p>
+            <button onclick="loadMemoryCard()" class="text-[3rem]"><i class="fa-solid fa-arrows-rotate fa-spin"></i><span> Zaigraj ponovno</span></button>
+        </div>
+    </main>
+    <script src="../main.js"></script>
+</body>
+</html>

@@ -13,7 +13,7 @@
     <!-- Font awesome -->
     <script src="https://kit.fontawesome.com/3460d05c1d.js" crossorigin="anonymous"></script>
 </head>
-<body onload="open_closeSidenav()">  
+<body>  
     <nav class="bg-green-500 shadow-lg shadow-black-500/50 px-[8px] py-[10px] sm:px-[16px]">
         <div class="container flex flex-wrap items-center justify-between mx-auto">
             <a href="index.html">
@@ -24,7 +24,7 @@
             </button>
 
             <!-- p-[16px] mt-[16px] -->
-            <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+            <!-- <div class="hidden w-full md:block md:w-auto" id="navbar-default">
                 <ul class="flex flex-col md:flex-row md:space-x-[32px] md:mt-[0px] md:text-sm">
                     <li class="bg-white p-[1rem] rounded-[4rem]">
                         <a href="igre_stranice/games.html" class="flex flex-row items-center text-emerald-500">
@@ -60,18 +60,27 @@
                             </a> 
                         </li>
                     </ul>
-                </div>
+                </div> -->
             </div>
         </div>
     </nav>
 
     <main>
         <div class="relative overflow-hidden h-[800px]">
-            <div class="absolute top-[40%] left-[50%] -translate-x-1/2 -translate-y-1/2">
-                <img src="images/logo2.png" alt="kolibrić logo" class="h-[15rem]">
-            </div>
             <div class="z-[-1] top-[0px] bottom-[0px] left-[0px] right-[0px] relative" id="image-intro">
                 <img class="absolute left-[50%] bottom-10px h-[800px] min-h-full min-w-full translate-x-[-50%]" src="images/parallax2.jpg" alt="parallax">
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 z-[1] place-items-center h-[800px]">
+                <div>
+                    <a href="igre_stranice/games.html" class="flex flex-col items-center">
+                        <i class="fa-solid fa-gamepad fa-10x text-emerald-500"></i>
+                    </a>
+                </div>
+                <div>
+                    <a href="edukacijske_stranice/educations.html" class="flex flex-col items-center">
+                        <i class="fa-solid fa-book fa-10x text-rose-500"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </main>
@@ -102,6 +111,13 @@
         </div>
     </footer>
 
+    
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-auth-compat.js"></script>
     <script src="main.js"></script>
 </body>
 </html>
