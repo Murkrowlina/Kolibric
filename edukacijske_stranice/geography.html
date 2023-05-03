@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kolibrić</title>
+    <title>Kolibrić - Geografija</title>
 
     <!-- CSS -->
     <link rel="stylesheet" href="../main.css">
@@ -21,23 +21,27 @@
     </nav>
 
     <main id="geography-container" class="text-center m-[1rem] mt-[4rem] pt-[0.5rem] pb-[2rem] px-[1rem] lg:px-[4rem] bg-white">
-        <div id="timer" class="hidden float-right overflow-hidden text-end text-[2rem] p-[10px] text-rose-500 bg-black">2:00</div>
-        <div id="geography-game" class="flex flex-col flex-wrap justify-center items-center gap-[30px]">
-            <p class="text-5xl">KOJI BI KVIZ ZAIGRALI?</p>
-            <button onClick="startGeographyGame('flags')" class="bg-zinc-300 rounded-md p-[20px] text-3xl font-extrabold">ZASTAVE</button>
-            <button onClick="startGeographyGame('capital')" class="bg-zinc-300 rounded-md p-[20px] text-3xl font-extrabold">GLAVNI GRADOVI</button>
-            <p class="text-4xl">POSTAVKE IGRE:</p>
+        <div id="game-settings" class="flex flex-col flex-wrap justify-center items-center gap-[30px]">
+            <div class="flex flex-col text-center gap-[1rem]">
+                <p class="text-4xl">KAKO SE IGRA?</p>
+                <p class="text-2xl">Pogodite kojoj državi pripada zastava ili glavni grad.</p>
+            </div>
+            <p class="text-4xl">KOJI BI KVIZ ZAIGRALI?</p>
+            <div class="flex flex-row flex-wrap justify-center items-center  gap-[1rem]">
+                <button onclick="startGeographyGame('flags')" class="bg-zinc-300 rounded-md p-[20px] text-3xl font-extrabold">ZASTAVE</button>
+                <button onclick="startGeographySecondVersion('flags')" class="bg-zinc-300 rounded-md p-[20px] text-3xl font-extrabold">ZASTAVE 2</button>
+            </div>
+            <button onclick="startGeographyGame('capital')" class="bg-zinc-300 rounded-md p-[20px] text-3xl font-extrabold">GLAVNI GRADOVI</button>
             <div class="flex flex-wrap flex-col justify-center items-center gap-[10px] text-xl">
-                <p><input type="radio" name="postavke" value="normal" class="scale-[1.2] accent-green-600" checked> Normalno - igraj koliko želiš</p>
-                <p><input type="radio" name="postavke" value="strict" class="scale-[1.2] accent-green-600"> Strict - igraj sve dok ne pogriješiš</p>
-                <p><input type="radio" name="postavke" value="timer" class="scale-[1.2] accent-green-600"> Timer - igraj sve dok ne istekne vrijeme</p>
+                <p class="text-3xl">POSTAVKE IGRE:</p>
+                <p><input type="radio" name="settings" value="normal" class="scale-[1.2] accent-green-600" checked> Normalno - igraj koliko želiš</p>
+                <p><input type="radio" name="settings" value="strict" class="scale-[1.2] accent-red-600"> Strict - igraj sve dok ne pogriješiš</p>
+                <p><input type="radio" name="settings" value="timer" class="scale-[1.2] accent-amber-600"> Timer - igraj sve dok ne istekne vrijeme</p>
             </div>
         </div>
+        <div id="game-container" class="hidden flex flex-col flex-wrap justify-center items-center gap-[30px]"></div>
     </main>
 
-    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-firestore-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-auth-compat.js"></script>
     <script src="../main.js"></script>
 </body>
 </html>

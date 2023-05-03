@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kolibrić</title>
+    <title>Kolibrić - Igre</title>
 
     <!-- CSS -->
     <link rel="stylesheet" href="../main.css">
@@ -13,28 +13,28 @@
     <!-- Font awesome -->
     <script src="https://kit.fontawesome.com/3460d05c1d.js" crossorigin="anonymous"></script>
 </head>
-<body onload="open_closeSidenav()">  
+<body onload="open_closeSidenav()" class="flex flex-col min-h-[100vh]">  
     <nav class="bg-green-500 shadow-lg shadow-black-500/50 px-[8px] py-[10px] sm:px-[16px]">
         <div class="container flex flex-wrap items-center justify-between mx-auto">
             <a href="../index.html">
                 <img src="../images/logo.png" alt="kolibrić logo" class="h-[5.5rem]">
             </a>
-            <button class="inline-flex items-center p-[8px] mr-[16px] text-2xl text-black md:hidden focus:outline-none focus:ring-2 focus:ring-slate-600" id="sidenav-menu" data-collapse-toggle="navbar-default" aria-controls="navbar-default" aria-expanded="false">
+            <button class="inline-flex items-center p-[8px] mr-[16px] text-2xl text-black lg:hidden focus:outline-none focus:ring-2 focus:ring-slate-600" id="sidenav-menu" data-collapse-toggle="navbar-default" aria-controls="navbar-default" aria-expanded="false">
                 <i class="fa-solid fa-bars text-white"></i>
             </button>
 
-            <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+            <div class="hidden w-full lg:block md:w-auto" id="navbar-default">
                 <ul class="flex flex-col md:flex-row md:space-x-[32px] md:mt-[0px] md:text-sm">
-                    <li class="bg-white p-[1rem] rounded-[4rem]">
+                    <li class="bg-white p-[1rem] rounded-[1rem]">
                         <a href="games.html" class="flex flex-row items-center text-emerald-500">
                             <i class="fa-solid fa-gamepad text-3xl"></i>
                             <span class="text-[1.2rem] font-semibold ml-[1rem]">IGRE</span>
                         </a> 
                     </li>
-                    <li class="bg-white p-[1rem] rounded-[4rem]">
+                    <li class="bg-white p-[1rem] rounded-[1rem]">
                         <a href="../edukacijske_stranice/educations.html" class="flex flex-row items-center text-rose-500">
                             <i class="fa-solid fa-book text-3xl"></i>
-                            <span class="text-[1.2rem] font-semibold ml-[1rem]">ENGLESKI</span>
+                            <span class="text-[1.2rem] font-semibold ml-[1rem]">EDUKACIJA</span>
                         </a> 
                     </li>
                 </ul>
@@ -55,7 +55,7 @@
                          <li>
                             <a href="../edukacijske_stranice/educations.html" class="flex items-center p-[8px] text-rose-500">
                                 <i class="fa-solid fa-book text-4xl"></i>
-                                <span class="text-[1.6rem] font-semibold ml-[1rem]">ENGLESKI</span>
+                                <span class="text-[1.6rem] font-semibold ml-[1rem]">EDUKACIJA</span>
                             </a> 
                         </li>
                     </ul>
@@ -65,7 +65,7 @@
     </nav>
 
     <main class="m-[3rem]">
-        <div class="grid grid-rows-3 grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
+        <div class="grid grid-rows-2 grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
             <div class="row-span-1 md:row-span-2 md:col-span-2 lg:row-span-2 lg:col-span-2 w-[100%] h-[100%]">
                 <a href="pixelArt.html">
                     <div class="flex flex-col rounded-xl overflow-hidden shadow-lg bg-white h-[100%]">
@@ -97,7 +97,7 @@
                             <img src="images/colorCodes_gif.gif" alt="" class="h-[100%] w-[100%]">
                         </div>
                         <div class="px-[24px] py-[16px]">
-                            <div class="text-center text-lg mb-2">Treba naziv za ovu igricu</div>
+                            <div class="text-center text-lg mb-2">Pogodi netočnu kutiju</div>
                         </div>
                     </div>
                 </a>
@@ -106,10 +106,10 @@
                 <a href="memoryCard.html">
                     <div class="flex flex-col rounded-xl overflow-hidden shadow-lg bg-white h-[100%]">
                         <div class="h-[100%]">
-                            <img src="" alt="memorij igra" class="h-[100%] w-[100%]">
+                            <img src="images/memory_gif.gif" alt="memorij igra" class="h-[100%] w-[100%]">
                         </div>
                         <div class="px-[24px] py-[16px]">
-                            <div class="text-center text-lg mb-2">Treba naziv za ovu igricu</div>
+                            <div class="text-center text-lg mb-2">Memorij</div>
                         </div>
                     </div>
                 </a>
@@ -118,10 +118,22 @@
                 <a href="simonSays.html">
                     <div class="flex flex-col rounded-xl overflow-hidden shadow-lg bg-white h-[100%]">
                         <div class="h-[100%]">
-                            <img src="" alt="Simon Says" class="h-[100%] w-[100%]">
+                            <img src="images/simonSays_gif.gif" alt="Simon Says" class="h-[100%] w-[100%]">
                         </div>
                         <div class="px-[24px] py-[16px]">
-                            <div class="text-center text-lg mb-2">Treba naziv za ovu igricu</div>
+                            <div class="text-center text-lg mb-2">Simon Says</div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="row-span-1 w-[100%]">
+                <a href="guessColor.html">
+                    <div class="flex flex-col rounded-xl overflow-hidden shadow-lg bg-white h-[100%]">
+                        <div class="h-[100%]">
+                            <img src="images/guessColor_gif.gif" alt="Simon Says" class="h-[100%] w-[100%]">
+                        </div>
+                        <div class="px-[24px] py-[16px]">
+                            <div class="text-center text-lg mb-2">Pogodi boju</div>
                         </div>
                     </div>
                 </a>
@@ -129,7 +141,7 @@
         </div>
     </main>
 
-    <footer class="bg-green-500 p-[16px] sm:p-[24px]">
+    <footer class="bg-green-500 p-[16px] sm:p-[24px] mt-[auto]">
         <div class="md:flex md:justify-between">
             <div class="mb-[24px] md:mb-0">
                 <a href="../index.html" class="flex items-center">
@@ -137,10 +149,9 @@
                 </a>
             </div>
         </div>
-        <hr class="my-[24px] border-white sm:mx-auto lg:my-[32px]" />
+        <hr class="border-white border-[1px] sm:mx-auto my-[24px] lg:my-[32px]" />
         <div class="sm:flex sm:items-center sm:justify-between">
             <span class="text-base text-white sm:text-center">© 2023 Napravile: Nikolina Vulić i Lara Berket</span>
-            </span>
             <div class="flex mt-[16px] space-x-[24px] sm:justify-center sm:mt-0">
                 <a href="#" class="text-white hover:text-green-300">
                     <i class="fa-brands fa-facebook text-4xl"></i>
@@ -148,19 +159,13 @@
                 <a href="#" class="text-white hover:text-green-300">
                     <i class="fa-brands fa-instagram text-4xl"></i>
                 </a>
-                <a href="https://github.com/Murkrowlina/EDIT-Projekt" class="text-white hover:text-green-300">
+                <a href="https://github.com/Murkrowlina/Kolibric" class="text-white hover:text-green-300">
                     <i class="fa-brands fa-github text-4xl"></i>
                 </a>
             </div>
         </div>
     </footer>
 
-    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
-
-    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-firestore-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-auth-compat.js"></script>
     <script src="../main.js"></script>
 </body>
 </html>

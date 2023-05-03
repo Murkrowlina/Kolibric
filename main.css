@@ -45,6 +45,7 @@ nav ul li:hover i {
   width: 10vmin;
   height: 10vmin;
   border-radius: 50%;
+  border: 5px solid white;
   cursor: pointer;
   margin: 1vmin 1.5vmin;
   transition: all 0.2s;
@@ -52,7 +53,7 @@ nav ul li:hover i {
 }
 
 .ball:hover {
-  box-shadow: 0 0 0 1.2vmin white;
+  border: 10px solid white;
   animation: kick 1s infinite cubic-bezier(0.31, 0.44, 0.44, 1.65);
 }
 
@@ -206,4 +207,14 @@ p#multicolored-title {
 
 #animals img:hover ~ p {
   transform: scale(1.2); 
+}
+
+/* GEOMETRY */
+#geometry-grid > div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  height: 130px;
+  width: 150px;
 }

@@ -4,20 +4,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kolibrić - Lovac na boje</title>
-    
+    <title>Kolibrić - Pogodi boju</title>
+
     <!-- CSS -->
     <link rel="stylesheet" href="../main.css">
     <script src="https://cdn.tailwindcss.com"></script>
+
     <!-- Font awesome -->
     <script src="https://kit.fontawesome.com/3460d05c1d.js" crossorigin="anonymous"></script>
 </head>
-<body class="bg-slate-700 flex justify-center">  
-    <main class="mt-[10px] px-[4rem] pb-[4rem] rounded-2xl">
+<body class="bg-slate-700">  
+    <main class="m-[4rem] flex flex-col flex-wrap justify-center items-center">
         <div id="game-settings" class="bg-white p-[2rem] flex flex-col flex-wrap justify-center items-center gap-[30px]">
             <div class="flex flex-col text-center gap-[1rem]">
                 <p class="text-4xl">KAKO SE IGRA?</p>
-                <p class="text-2xl">Pritisnete na krug koja nije iste boje kao i drugi.</p>
+                <p class="text-2xl">Pogodite naziv boje prikazano na slici.</p>
             </div>
             <div class="flex flex-wrap flex-col justify-center items-center gap-[10px] text-xl">
                 <p class="text-3xl">POSTAVKE IGRE:</p>
@@ -25,9 +26,18 @@
                 <p><input type="radio" name="settings" value="strict" class="scale-[1.2] accent-red-600"> Strict - igraj sve dok ne pogriješiš</p>
                 <p><input type="radio" name="settings" value="timer" class="scale-[1.2] accent-amber-600"> Timer - igraj sve dok ne istekne vrijeme</p>
             </div>
-            <button onclick="startBallGame()" class="bg-zinc-300 rounded-md p-[20px] text-3xl font-extrabold">ZAIGRAJ</button>
+            <button onclick="startGuessColor()" class="bg-zinc-300 rounded-md p-[20px] text-3xl font-extrabold">ZAIGRAJ</button>
         </div>
-        <div id="game-container" class="hidden flex flex-col mt-[2rem] p-[2rem]">
+        <div id="game-container" class="hidden flex flex-col border-solid border-2 rounded-xl bg-white gap-[2rem] p-[2rem]">
+            <div id="scoreboard" class="flex flex-row justify-between items-center text-center text-4xl mb-[1rem]">
+                <p class="mt-[1rem]" id="score">Bodovi: 0</p>
+                <div id="timer" class="hidden p-[10px] text-rose-500 bg-black">2:00</div>
+            </div>
+            <div class="flex flex-col justify-center gap-[2rem]">
+                <div id="chosen-color" class="bg-black w-[15rem] h-[15rem]"></div>
+                <div id="guess-color-btns" class="flex flex-row justify-between">
+                </div>
+            </div>
         </div>
     </main>
     <script src="../main.js"></script>

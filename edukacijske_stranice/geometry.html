@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kolibrić - Geometrijski oblici</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../main.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font awesome -->
+    <script src="https://kit.fontawesome.com/3460d05c1d.js" crossorigin="anonymous"></script>
+</head>
+<body class="flex justify-center bg-sky-800">  
+    <nav class="fixed p-[1rem] top-[0px] left-[0px] h-fit w-fit border-2 border-transparent rounded-br-[8rem] bg-sky-600">
+        <div>
+            <a href="educations.html"><i class="fa-solid fa-arrow-left text-[4rem] text-sky-100"></i></a>
+        </div>
+    </nav>
+
+    <main class="text-center m-[1rem] mt-[4rem] pt-[0.5rem] pb-[2rem] px-[1rem] lg:px-[4rem] bg-white w-[70rem]">
+        <div id="game-settings" class="flex flex-col flex-wrap justify-center items-center gap-[35px]">
+            <p class="text-5xl">GEOMETRIJSKI OBLICI:</p>
+            <div class="flex flex-row flex-wrap justify-center items-center gap-[20px]">
+                <div>
+                    <img src="geometry/circle.png" alt="krug" class="h-[10rem]">
+                    <p class="text-xl">KRUG</p>
+                </div>
+                <div>
+                    <img src="geometry/triangle.png" alt="trokut" class="h-[10rem]">
+                    <p class="text-xl">TROKUT</p>
+                </div>
+                <div>
+                    <img src="geometry/square.png" alt="kvadrat" class="h-[10rem]">
+                    <p class="text-xl">KVADRAT</p>
+                </div>
+                <div>
+                    <img src="geometry/rectangle.png" alt="pravokutnik" class="h-[10rem]">
+                    <p class="text-xl">PRAVOKUTNIK</p>
+                </div>
+                <div>
+                    <img src="geometry/oval.png" alt="oval" class="h-[10rem]">
+                    <p class="text-xl">OVAL</p>
+                </div>
+                <div>
+                    <img src="geometry/sphere.png" alt="kugla" class="h-[10rem]">
+                    <p class="text-xl">KUGLA</p>
+                </div>
+                <div>
+                    <img src="geometry/pyramid.png" alt="piramida" class="h-[10rem]">
+                    <p class="text-xl">PIRAMIDA</p>
+                </div>
+                <div>
+                    <img src="geometry/cube.png" alt="kocka" class="h-[10rem]">
+                    <p class="text-xl">KOCKA</p>
+                </div>
+                <div>
+                    <img src="geometry/cylinder.png" alt="valjak" class="h-[10rem]">
+                    <p class="text-xl">VALJAK</p>
+                </div>
+            </div>
+            <div class="flex flex-wrap flex-col justify-center items-center gap-[10px] text-xl">
+                <p class="text-3xl">POSTAVKE IGRE:</p>
+                <p><input type="radio" name="settings" value="normal" class="scale-[1.2] accent-green-600" checked> Normalno - igraj koliko želiš</p>
+                <p><input type="radio" name="settings" value="strict" class="scale-[1.2] accent-red-600"> Strict - igraj sve dok ne pogriješiš</p>
+                <p><input type="radio" name="settings" value="timer" class="scale-[1.2] accent-amber-600"> Timer - igraj sve dok ne istekne vrijeme</p>
+            </div>
+            <button onclick="startGeometryGame()" class="bg-zinc-300 rounded-md p-[20px] text-3xl font-extrabold">ZAIGRAJ</button>
+        </div>
+        <div id="game-container" class="hidden flex flex-col justify-center items-center gap-[3rem]">
+        </div>
+    </main>
+
+    <script src="../main.js"></script>
+</body>
+</html>

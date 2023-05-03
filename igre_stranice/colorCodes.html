@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Kolibrić - Kutije igra</title>
 
     <!-- CSS -->
     <link rel="stylesheet" href="../main.css">
@@ -13,17 +13,22 @@
     <!-- Font awesome -->
     <script src="https://kit.fontawesome.com/3460d05c1d.js" crossorigin="anonymous"></script>
 </head>
-<body class="bg-slate-700" onload="loadColorCodeGame()">  
-    <main>
-        <div class="mt-[4rem] flex flex-col justify-center items-center h-[700px] w-full">
-            <div class="border-solid border-2 border-amber-200 rounded-xl bg-amber-200 h-full w-[300px] md:h-[300px] md:w-[700px] lg:h-[300px] lg:w-[700px]">
-                <div class="flex flex-col justify-center items-center space-x-[15px] m-[10px]">
-                    <p class="text-3xl text-center" id="color-code-text">Odaberite pravokutnik čija boja i tekst nisu isti</p>
-                    <p class="mt-[1rem] text-2xl" id="color-codes-scores">Bodovi: 0</p>
-                </div>
-                <div class="flex lg:flex-row md:flex-row flex-col justify-center items-center relative" id="color-codes-container">
-                </div>
+<body class="bg-slate-700">  
+    <main class="m-[4rem] flex flex-col justify-center items-center">
+        <div id="game-settings" class="bg-white p-[2rem] flex flex-col flex-wrap justify-center items-center gap-[30px]">
+            <div class="flex flex-col text-center gap-[1rem]">
+                <p class="text-4xl">KAKO SE IGRA?</p>
+                <p class="text-2xl">Odaberete kutiju čija boja i tekst nisu isti.</p>
             </div>
+            <div class="flex flex-wrap flex-col justify-center items-center gap-[10px] text-xl">
+                <p class="text-3xl">POSTAVKE IGRE:</p>
+                <p><input type="radio" name="settings" value="normal" class="scale-[1.2] accent-green-600" checked> Normalno - igraj koliko želiš</p>
+                <p><input type="radio" name="settings" value="strict" class="scale-[1.2] accent-red-600"> Strict - igraj sve dok ne pogriješiš</p>
+                <p><input type="radio" name="settings" value="timer" class="scale-[1.2] accent-amber-600"> Timer - igraj sve dok ne istekne vrijeme</p>
+            </div>
+            <button onclick="startColorCodeGame()" class="bg-zinc-300 rounded-md p-[20px] text-3xl font-extrabold">ZAIGRAJ</button>
+        </div>
+        <div id="game-container" class="hidden border-solid border-2 border-amber-200 rounded-xl bg-amber-200 p-[2rem] w-fit h-fit">
         </div>
     </main>
     <script src="../main.js"></script>
